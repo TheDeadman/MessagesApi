@@ -18,7 +18,11 @@ router.post('/default', function(req, res) {
 });
 router.post('/default/reset', function(req, res) {
         io.resetDefault()
-        res.json('ok')
+        res.json('reset')
 });
+router.post('/delete', function (req, res) {
+    io.deleteFile()
+    res.json('delete')
+})
 
 module.exports = router;

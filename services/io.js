@@ -15,6 +15,7 @@ function saveData(fileName, data) {
             if (err) {
                 reject(err)
             } else {
+                console.log('saving')
                 resolve('success')
             }
         })
@@ -63,10 +64,17 @@ function resetDefault() {
     currentDefault = defaultData
 }
 
+function deleteFile() {
+    let filePath = path.join(__rootdir, 'data', 'p184560')
+
+    fs.unlink(filePath)
+}
+
 module.exports = {
     getData,
     saveData,
     setCurrentDefault,
     getCurrentDefault,
-    resetDefault
+    resetDefault,
+    deleteFile
 }
